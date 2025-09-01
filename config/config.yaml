@@ -1,0 +1,7 @@
+data_ingestion:
+  project_id: "nimble-bonus-458610-m2"
+  bucket_name: "anime_recommender_2"
+  bucket_file_names:
+    - "anime.csv"
+    - "anime_with_synopsis.csv"
+    - "animelist.csv"

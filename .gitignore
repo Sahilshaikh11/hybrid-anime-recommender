@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+# VS Code settings
+.vscode/
+
+# Data files
+data/
+*.csv
+*.tsv
+
+# Logs
+*.log
+
+# Configs and secrets
+*.yaml
+*.yml
+*.json
+!config/*.yaml
+!config/*.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Google Cloud credentials
+*.json
+!config/paths_config.py
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Test outputs
+htmlcov/
+coverage.xml
+*.cover
+
+# Misc
+*.tmp
+*.bak
+*.swp

@@ -53,3 +53,26 @@ coverage.xml
 *.tmp
 *.bak
 *.swp
+
+# TensorFlow/Keras
+*.h5
+*.hdf5
+*.pb
+*.ckpt
+
+# PyTorch
+*.pt
+*.pth
+*.bin
+
+# Scikit-learn/XGBoost/LightGBM
+*.joblib
+*.pkl
+*.sav
+*.model
+
+# ONNX
+*.onnx
+
+# TensorFlow SavedModel directory
+saved_model/

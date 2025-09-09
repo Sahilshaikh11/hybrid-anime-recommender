@@ -1,3 +1,4 @@
+import comet_ml
 import joblib
 import numpy as np
 import os
@@ -6,13 +7,22 @@ from src.logger import get_logger
 from src.custom_exception import CustomException
 from src.base_model import BaseModel
 from config.paths_config import *
+from dotenv import load_dotenv
 
 logger = get_logger(__name__)
+load_dotenv()
+api_key = os.getenv("COMET_API_KEY")
 
 class ModelTraining:
     def __init__(self, data_path):
         self.data_path = data_path
-        logger.info("ModelTraining initialized.")
+
+        self.experiment = comet_ml.Experiment(
+            api_key=api_key,
+            project_name="hybrid-anime-recommender",
+            workspace="sahilshaikh11"
+        )
+        logger.info("ModelTraining & COMET-ML initialized.")
 
     def load_data(self):
         try:
@@ -81,6 +91,12 @@ class ModelTraining:
                 model.load_weights(CHECKPOINT_FILE_PATH)
                 logger.info("Model training completed.")
 
+                for epoch in range(len(history.history['loss'])):
+                    train_loss = history.history['loss'][epoch]
+                    val_loss = history.history['val_loss'][epoch]
+                    self.experiment.log_metric("train_loss", train_loss, step=epoch)
+                    self.experiment.log_metric("val_loss", val_loss, step=epoch)
+
 
             except Exception as e:
                 logger.error(f"Model training failed: {e}")
@@ -111,6 +127,11 @@ class ModelTraining:
 
             joblib.dump(user_weights, USER_WEIGHTS_PATH)
             joblib.dump(anime_weights, ANIME_WEIGHTS_PATH)
+
+            self.experiment.log_asset(MODEL_PATH)
+            self.experiment.log_asset(USER_WEIGHTS_PATH)
+            self.experiment.log_asset(ANIME_WEIGHTS_PATH)
+
             logger.info(f"Model weights saved at {USER_WEIGHTS_PATH} and {ANIME_WEIGHTS_PATH}")
 
         except Exception as e:

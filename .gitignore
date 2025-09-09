@@ -12,6 +12,7 @@ __pycache__/
 venv/
 .env/
 .envrc
+.env
 
 # VS Code settings
 .vscode/

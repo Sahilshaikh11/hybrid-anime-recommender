@@ -8,3 +8,4 @@ joblib
 scikit-learn
 comet-ml
 python-dotenv
+dvc

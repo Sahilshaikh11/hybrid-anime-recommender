@@ -77,3 +77,6 @@ coverage.xml
 
 # TensorFlow SavedModel directory
 saved_model/
+
+# Testing files
+tester.py

@@ -1,6 +1,6 @@
 from utils.common_funtions import read_yaml
 from config.paths_config import *
-from src.data_preprocessing import DataPreprocessor
+from src.data_processing import DataPreprocessor
 from src.model_training import ModelTraining
 
 if __name__ == "__main__":

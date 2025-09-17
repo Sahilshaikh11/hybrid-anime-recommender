@@ -1,0 +1,145 @@
+/* ==== Base Page Styling ==== */
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top left, #0f172a, #1e293b, #111827);
+    color: #f8fafc;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==== Card Container ==== */
+.form-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+}
+
+/* ==== Animations ==== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== Headings ==== */
+.form-container h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.8rem;
+}
+
+/* ==== Label ==== */
+label {
+    display: block;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+/* ==== Input Fields ==== */
+input[type="number"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #f1f5f9;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #6366f1;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+/* ==== Button ==== */
+button {
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 0.9rem;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(236, 72, 153, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+/* ==== Results Section ==== */
+.results-container {
+    margin-top: 2rem;
+    text-align: left;
+    animation: fadeIn 0.7s ease;
+}
+
+.results-container h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f9fafb;
+    margin-bottom: 1rem;
+}
+
+/* ==== Anime List ==== */
+.results-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.results-container li {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.results-container li:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+    transform: translateX(4px);
+}
+
+/* ==== Cursor Glow Effect ==== */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;   /* glow size */
+    height: 200px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.4), rgba(236,72,153,0.2), transparent 70%);
+    transform: translate(-50%, -50%);
+    filter: blur(60px);
+    z-index: 9999;
+    transition: transform 0.1s linear;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Hybrid Anime-Recommender System</title>
+</head>
+<body>
+    <div class="cursor-glow"></div>
+
+
+    <div class="form-container">
+        <h1>Welcome to our Hybrid Anime-Recommender System</h1>
+        <form action="/" method="post">
+            <label for="user_id">Enter User ID:</label>
+            <input type="number" id="user_id" name="user_id" required>
+            <button type="submit">Get Recommendations</button>
+        </form>
+
+        {% if recommendations %}
+        <div class="results-container">
+            <h2>Your Recommended Animes are:</h2>
+            <ul>
+                {% for anime in recommendations %}
+                <li>{{ anime }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        {% endif %}
+    </div>
+    <script>
+  const glow = document.querySelector('.cursor-glow');
+
+  document.addEventListener('mousemove', (e) => {
+    glow.style.top = e.clientY + 'px';
+    glow.style.left = e.clientX + 'px';
+  });
+</script>
+
+
+</body>
+</html>
